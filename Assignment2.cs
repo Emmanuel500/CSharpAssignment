@@ -114,20 +114,38 @@ class Assignment2
         }
         Console.WriteLine("");
         
-        //4) Rotation Addition
+        //4) Rotation Addition~
         static void RotationalAddition(int[] intArray, int k)
         {
             List<int[]> rotatedList = new List<int[]>();
             for (int i = 0; i < k; i++)
             {
-                for (int s = 0; s < )
+                int[] rotationArray = new int[intArray.Length];
+                for (int s = 0; s < intArray.Length; s++)
                 {
-
+                    rotationArray[(s + i) % intArray.Length] = rotationArray[s];
+                }
+                rotatedList.Add(rotationArray);
+            }
+            //Adding
+            int[] sum = new int[intArray.Length];
+            for (int r = 1; r < k; r++)
+            {
+                for (int l = 0; l < intArray.Length - 1; l++)
+                {
+                    sum[l] += rotatedList[r][l];
                 }
             }
+            //Printing
+            for (int i = 0; i < sum.Length; i++)
+            {
+                Console.Write(sum[i] + " ");
+            }
         }
+        RotationalAddition(new int[] { 3, 2, 4, -1 }, 2);
+        Console.WriteLine("");
 
-        //5) Longest sequence
+        //5) Longest sequence~
         static void LongestSequence(int[] intArray)
         {
             int currentNumb = 0;
