@@ -269,5 +269,8 @@ for (int z = 1; z  <= numbCounting; z++)
     Console.WriteLine("");
 }
 
+//Assignment 2 TestRun
+Assignment2 testRunA2 = new Assignment2();
+
 //None top level statments
 enum Gender { Male, Female, Prefer_Not_To_Answer }
