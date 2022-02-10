@@ -195,7 +195,40 @@ class Assignment2
         }
         Console.WriteLine("");
 
-        //2)
+        //2) Reverse Sentence~
+        static void ReverseSentence(string[] stringArray)
+        {
+            List<string> wordsToReverse = new List<string>();
+            List<char> seperatorToKeep = new List<char>();
+            List<int> whereSeperatorAreKept = new List<int>();
+            char[] seperatorArray = new char[] { ',', ':', ';', '=', '(', ')', '&', '[', ']', '"', '\'', '\\', '/', '!', '?', ' ' };
+            for (int x = stringArray.Length - 1; x <= 0; x++)
+            {
+                string wordWithoutSeperator = stringArray[x];
+                foreach (char c in seperatorArray)
+                {
+                    if (wordWithoutSeperator.Contains(c))
+                    {
+                        seperatorToKeep.Add(c);
+                        whereSeperatorAreKept.Add(x);
+                        wordWithoutSeperator.Replace(c.ToString(), String.Empty);
+                    }
+                }
+                wordsToReverse.Add(wordWithoutSeperator);
+            }
+            for (int z = 0; z < stringArray.Length; z++)
+            {
+                Console.Write(wordsToReverse[z]);
+                while (whereSeperatorAreKept.Contains(z))
+                {
+
+                    Console.Write(seperatorToKeep[whereSeperatorAreKept.Count - 1]);
+                    whereSeperatorAreKept.Remove(z);
+                }
+            }
+            Console.WriteLine("");
+        }
+        
 
         //3)
 
